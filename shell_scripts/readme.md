@@ -1,6 +1,8 @@
 # Shell scripts
 
-These scripts were run on the [Cedar cluster](https://docs.computecanada.ca/wiki/Cedar) on [Westgrid](https://www.westgrid.ca/) and [Compute Canada](https://www.computecanada.ca/) 
+These scripts were run on the [Cedar cluster](https://docs.computecanada.ca/wiki/Cedar) on [Westgrid](https://www.westgrid.ca/) and [Compute Canada](https://www.computecanada.ca/).
+
+The pipeline here follows the [superTranscripts](https://github.com/Oshlack/Lace/wiki/Example:-Differential-Transcript-Usage-on-a-non-model-organism) pipeline pretty closely. 
 
 
 #### The scripts were used in this order:
@@ -15,3 +17,4 @@ These scripts were run on the [Cedar cluster](https://docs.computecanada.ca/wiki
   - `salmon_quant_pre_corset.sh` is where Salmon is actually used to quantify transcript abundance. Equivalence classes (`--dumpEq`) is used with Salmon because Corset requires that information for clustering the transcripts.
     - the `array_paired_trimmed_reads.txt` file was used with `printf` as in the `raw_dace_reads.txt` file, but with each forward and reverse file on the same line. Salmon quantification is then run in an array, so 30 jobs (one for each sample) are run at once on the cluster. Each job represents one sample, or one line from the array text file. 
      - the directory format for outputting data when Salmon finishes led to many extra direcories the way the script is written here.
+  - `corset_dace.sh` takes the equivalence classes text file from each of the salmon outputs, and clusters transcripts based on Salmon's quasi alignments. 
