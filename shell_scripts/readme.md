@@ -1,11 +1,9 @@
 # Shell scripts
 
-These scripts were run on the [Cedar cluster](https://docs.computecanada.ca/wiki/Cedar) on [Westgrid](https://www.westgrid.ca/) and [Compute Canada](https://www.computecanada.ca/), unless otherwise stated below. 
-
-The pipeline here follows the [superTranscripts](https://github.com/Oshlack/Lace/wiki/Example:-Differential-Transcript-Usage-on-a-non-model-organism) pipeline pretty closely. 
+These scripts were run on the [Cedar cluster](https://docs.computecanada.ca/wiki/Cedar) on [Westgrid](https://www.westgrid.ca/) and [Compute Canada](https://www.computecanada.ca/), unless otherwise stated. The pipeline here follows the [superTranscripts](https://github.com/Oshlack/Lace/wiki/Example:-Differential-Transcript-Usage-on-a-non-model-organism) pipeline pretty closely. 
 
 
-#### The scripts were used in this order:
+#### Scripts were used in this order:
   - `raw_fastqc.sh` used to take a look at quality before trimming.
     - the `raw_dace_reads.txt` file used to list the unpaired reads and file locations for trimming was made by navigating to the folder they were in and using `printf '%s\n' "$PWD"/* > raw_dace_reads.txt`.
     - MultiQC was used after this to collate fastqc reports into a single report, using Ubuntu on a Windows PC. 
