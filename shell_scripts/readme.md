@@ -15,7 +15,7 @@ The pipeline here follows the [superTranscripts](https://github.com/Oshlack/Lace
   - `trinity_assembly_skylake.sh` is where Trinity is used to assemble a _de novo_ transcriptome. The job took ~11.5 days to run.
     - `trinity_sample_list.txt` includes the file path locations, copied from the trimmed read list text file and a little bit of metadata on each sample, with 3 groups in this experiment.
   - `salmon_index_pre_corset.sh` is where an index of the trascriptome is generated for using Salmon to quantify transcript abundance. 
-  - `salmon_quant_pre_corset.sh` is where Salmon is actually used to quantify transcript abundance. Equivalence classes (`--dumpEq`) is used with Salmon because Corset requires that information for clustering the transcripts.
+  - `salmon_quant_pre_corset.sh` is where Salmon is actually used to quantify transcript abundance. Optional equivalence classes (`--dumpEq`) are created with Salmon because Corset requires that information for clustering the transcripts.
     - the `array_paired_trimmed_reads.txt` file was made with `printf` as in the `raw_dace_reads.txt` file, but with each forward and reverse file on the same line. Salmon quantification is then run in an array, so 30 jobs (one for each sample) are run at once on the cluster. Each job represents one sample, or one line from the array text file. 
      - the directory format for outputting data when Salmon finishes led to many extra direcories the way the script is written here. I copied the Salmon outputs back to a higher level directory before running Corset. 
   - `corset_dace.sh` takes the equivalence classes text file from each of the salmon outputs, and uses Corset to cluster transcripts based on Salmon's quasi alignments. 
