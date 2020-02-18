@@ -11,6 +11,7 @@ The pipeline here follows the [superTranscripts](https://github.com/Oshlack/Lace
     - MultiQC was used after this to collate fastqc reports into a single report.
   - `trim_raw_reads.sh` is where trimmomatic was called, using the `TruSeq3-SE.fa` file for adapters.
   - `trimmed_fastqc.sh` is trimmomatic as well, and the `trimmed_read_list.txt` file was made using the `printf` command above.
+    - As before, MultiQC was used to collate quality reports. 
   - `trinity_assembly_skylake.sh` is where Trinity is used to assemble a _de novo_ transcriptome. The job took ~11.5 days to run.
     - `trinity_sample_list.txt` includes the file path locations, copied from the trimmed read list text file and a little bit of metadata on each sample, with 3 groups in this experiment.
   - `salmon_index_pre_corset.sh` is where an index of the trascriptome is generated for using Salmon to quantify transcript abundance. 
