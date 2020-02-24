@@ -17,3 +17,8 @@ These scripts were run on the [Cedar cluster](https://docs.computecanada.ca/wiki
     - the `array_paired_trimmed_reads.txt` file was made with `printf` as in the `raw_dace_reads.txt` file, but with each forward and reverse file on the same line. Salmon quantification is then run in an array, so 30 jobs (one for each sample) are run at once on the cluster. Each job represents one sample, or one line from the array text file. 
      - the directory format for outputting data when Salmon finishes led to many extra direcories the way the script is written here. I copied the Salmon outputs back to a higher level directory before running Corset. 
   - `corset_dace.sh` takes the equivalence classes text file from each of the salmon outputs, and uses Corset to cluster transcripts based on Salmon's quasi alignments. 
+    - This script took 2 days and 15 hours to complete. 
+    - Two settings were needed for Corset to run within any kind of reasonable time frame:
+      - `-l 5` sets the minimum of overlapping nucleotides between transcripts to be 5 for incorporation into a SuperTranscript.
+      - `-x 1000` filters out reads that align to more than 1000 contigs. 
+    
