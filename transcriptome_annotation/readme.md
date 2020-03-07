@@ -26,7 +26,7 @@ Unless otherwise stated (i.e., everything except the tmhmm and signalP scripts) 
    - Run hmmscan to find known protein residues
     - `hmmscan --cpu 8 --domtblout TrinotatePFAM.out Pfam-A.hmm /home/fish_people/redside_dace/transdecoder_out/longest_orfs.pep > pfam.log`
    - [`tmhmm.sh`](https://github.com/BioMatt/redside_dace_RNA/blob/master/transcriptome_annotation/tmhmm.sh) and [`signalp.sh`](https://github.com/BioMatt/redside_dace_RNA/blob/master/transcriptome_annotation/signalp.sh) were both run on the [Cedar cluster](https://docs.computecanada.ca/wiki/Cedar) on [Westgrid](https://www.westgrid.ca/) and [Compute Canada](https://www.computecanada.ca/).
-    - Admin help was needed to increase the maximum number of entries allowed for signalP from 10000 to 2000000 following the [guide](https://github.com/Trinotate/Trinotate.github.io/wiki/Software-installation-and-data-required#signalp-v4-free-academic-download)
+      - Admin help was needed to increase the maximum number of entries allowed for signalP from 10000 to 2000000 following the [guide](https://github.com/Trinotate/Trinotate.github.io/wiki/Software-installation-and-data-required#signalp-v4-free-academic-download)
    - With all outputs collected, collect them into an sqlite database for Trinotate   
     - First, the transcripts, gene and transcript map, and protein sequences
       - `Trinotate Trinotate.sqlite init --gene_trans_map /home/fish_people/redside_dace/dace_transcriptome/dace_Trinity.fasta.gene_trans_map --transcript_fasta /home/fish_people/redside_dace/dace_transcriptome/dace_transcriptome_Trinity.fasta --transdecoder_pep /home/fish_people/redside_dace/transdecoder_out/longest_orfs.pep`
