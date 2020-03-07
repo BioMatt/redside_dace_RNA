@@ -18,7 +18,7 @@ Unless otherwise stated (i.e., everything except the tmhmm and signalP scripts) 
      - Building the pfam, or protein family database, for other annotations:  
         - `gunzip Pfam-A.hmm.gz`  
         - `hmmpress Pfam-A.hmm`  
-        - This makes the file `Pfam-A.hmm.gz`
+        - This makes the file `Pfam-A.hmm`
         
   - With the three databases created, and within the trinotate binaries directory, run blastx first on the Trinity fasta  
     - `blastx -query /home/fish_people/redside_dace/dace_transcriptome/dace_transcriptome_Trinity.fasta -db uniprot_sprot.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastx.outfmt6`  
