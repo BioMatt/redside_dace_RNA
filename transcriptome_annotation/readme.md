@@ -33,16 +33,16 @@ Unless otherwise stated (i.e., everything except the tmhmm and signalP scripts) 
    - With all outputs collected, collect them into an sqlite database for Trinotate   
     - First, the transcripts, gene and transcript map, and protein sequences
       - `Trinotate Trinotate.sqlite init --gene_trans_map /home/fish_people/redside_dace/dace_transcriptome/dace_Trinity.fasta.gene_trans_map --transcript_fasta /home/fish_people/redside_dace/dace_transcriptome/dace_transcriptome_Trinity.fasta --transdecoder_pep /home/fish_people/redside_dace/transdecoder_out/longest_orfs.pep`
-    - Then load the BLAST protein hits
-         - `Trinotate Trinotate.sqlite LOAD_swissprot_blastp blastp.outfmt6`
-    - Load the BLAST transcript hits
-          - `Trinotate Trinotate.sqlite LOAD_swissprot_blastx blastx.outfmt6`
-     - Load PFAM domain entries
-          - `Trinotate Trinotate.sqlite LOAD_pfam TrinotatePFAM.out`
-    - Load transmembrane domains from tmhmm
-         - `Trinotate Trinotate.sqlite LOAD_tmhmm tmhmm.out`
-    - Load signal peptide predictions from signalP
-        - `Trinotate Trinotate.sqlite LOAD_signalp signalp.out`
+    - Then load the BLAST protein hits\
+         - `Trinotate Trinotate.sqlite LOAD_swissprot_blastp blastp.outfmt6`\
+    - Load the BLAST transcript hits\
+          - `Trinotate Trinotate.sqlite LOAD_swissprot_blastx blastx.outfmt6`\
+     - Load PFAM domain entries\
+          - `Trinotate Trinotate.sqlite LOAD_pfam TrinotatePFAM.out`\
+    - Load transmembrane domains from tmhmm\
+         - `Trinotate Trinotate.sqlite LOAD_tmhmm tmhmm.out`\
+    - Load signal peptide predictions from signalP\
+        - `Trinotate Trinotate.sqlite LOAD_signalp signalp.out`\
       
    - Output the annotation report! Unfiltered first
      - `Trinotate Trinotate.sqlite report > dace_annotation_report.xls`
