@@ -21,6 +21,7 @@ Unless otherwise stated (i.e., everything except the tmhmm and signalP scripts) 
         - This makes the file `Pfam-A.hmm.gz`
   - With the three databases created, and within the trinotate binaries directory, run blastx first on the Trinity fasta
     - `blastx -query /home/fish_people/redside_dace/dace_transcriptome/dace_transcriptome_Trinity.fasta -db uniprot_sprot.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastx.outfmt6`
+    - This step was the longest in the process, taking ~3 days of computer time.
    - Repeat the process of searching the sprot database with blastp, using the transdecoder .pep output file
     - `blastp -query /home/fish_people/redside_dace/transdecoder_out/longest_orfs.pep -db uniprot_sprot.pep -num_threads 8 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastp.outfmt6`
    - Run hmmscan to find known protein residues
