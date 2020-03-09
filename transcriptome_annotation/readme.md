@@ -48,3 +48,7 @@ Unless otherwise stated (i.e., everything except the tmhmm and signalP scripts) 
      - `Trinotate Trinotate.sqlite report > dace_annotation_report.xls`
    - Then filtering by a liberal threshold of E values below 0.001 
      -  `Trinotate Trinotate.sqlite report -E 1e-3 > dace_annotation_report_filtered.xls`
+     
+   - The Trinotate report needed to be filtered before combining the data with differential gene expression results. This accomplished in `dace_annotation_analysis.R` 
+     - In summary, the blastx transcript annotations are focused on. Following Pearson 2013 (doi: 10.1002/0471250953.bi0301s42), E values of less than 1E-6 and bit scores greater than 50 are used to filter the annotations.
+     - Blastp, pfam, signalP, and tmhmm results are put together in a supporting information column.
